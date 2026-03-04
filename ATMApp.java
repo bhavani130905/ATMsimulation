@@ -1,18 +1,23 @@
-public void showSplashScreen() {
-    // Dynamically generate ATM logo instead of loading from file
-    BufferedImage logo = generateATMLogo();
-    JLabel splashLabel = new JLabel(new ImageIcon(logo));
-    // Other splash screen code...
-}
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
-private BufferedImage generateATMLogo() {
-    // Implementation of logo generation
-    BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g = image.createGraphics();
-    g.setColor(Color.BLUE);
-    g.fillRect(0, 0, 100, 100);
-    g.setColor(Color.WHITE);
-    g.drawString("ATM Logo", 10, 50);
-    g.dispose();
-    return image;
+// Replace this method in ATMApp.java
+private void drawLogo(GraphicsContext gc) {
+    // Draw card icon
+    gc.setFill(Color.BLUE);
+    gc.fillRect(50, 25, 100, 60); // Card rectangle
+    gc.setFill(Color.WHITE);
+    gc.fillText("💳", 75, 60); // Card icon using emoticon
+
+    // Draw dollar sign
+    gc.setFont(new Font(30));
+    gc.setFill(Color.GREEN);
+    gc.fillText("$", 120, 50);
+
+    // Draw "ATMify" text
+    gc.setFont(new Font("Arial", 24));
+    gc.setFill(Color.BLACK);
+    gc.fillText("ATMify", 40, 120);
 }
