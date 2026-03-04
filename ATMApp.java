@@ -1,23 +1,31 @@
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 
-// Replace this method in ATMApp.java
-private void drawLogo(GraphicsContext gc) {
-    // Draw card icon
-    gc.setFill(Color.BLUE);
-    gc.fillRect(50, 25, 100, 60); // Card rectangle
-    gc.setFill(Color.WHITE);
-    gc.fillText("💳", 75, 60); // Card icon using emoticon
+public class ATMApp {
 
-    // Draw dollar sign
-    gc.setFont(new Font(30));
-    gc.setFill(Color.GREEN);
-    gc.fillText("$", 120, 50);
+    // other existing methods
 
-    // Draw "ATMify" text
-    gc.setFont(new Font("Arial", 24));
-    gc.setFill(Color.BLACK);
-    gc.fillText("ATMify", 40, 120);
+    public void showSplashScreen() {
+        // Previous splash screen implementation can be removed
+        Canvas logoCanvas = createLogoCanvas();
+        // Add logic to display logoCanvas in your UI
+    }
+
+    public Canvas createLogoCanvas() {
+        int width = 300;
+        int height = 150;
+        Canvas canvas = new Canvas(width, height);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+
+        // Draw ATM card logo
+        gc.setFill(Color.DARKBLUE);
+        gc.fillRect(0, 0, width, height);
+        gc.setFill(Color.WHITE);
+        gc.fillText("ATM Card", 100, 75);
+
+        // Add more design elements to the logo as needed
+
+        return canvas;
+    }
 }
